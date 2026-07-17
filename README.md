@@ -16,19 +16,19 @@
 
 ## 部署
 
-不依赖 nginx，任意静态文件服务都可以：
+不需要 nginx，一个静态文件，任何方式都可以：
 
 ```bash
 # 方式一：直接用浏览器打开
 open index.html
 
-# 方式二：Python 起一个服务
+# 方式二：Python 一行命令
 python3 -m http.server 8080
 
 # 方式三：Docker
 docker run -d --name nav-dash -p 8080:80 \
-  -v $(pwd)/index.html:/usr/share/nginx/html/index.html \
-  nginx:alpine
+  -v $(pwd)/index.html:/var/www/index.html \
+  busybox httpd -f -p 80 -h /var/www
 ```
 
 ## 技术栈
