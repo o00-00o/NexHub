@@ -1,6 +1,8 @@
-# Nav Dash
+# NexHub
 
-极简导航面板 — 纯 HTML/CSS/JS 单文件，零框架零依赖。
+NAS 导航门户 — 一个文件，所有服务触手可及。
+
+NAS 导航门户 — 纯单文件 — 纯 HTML/CSS/JS 单文件，零框架零依赖。
 
 ## 功能
 
@@ -26,7 +28,7 @@ open index.html
 python3 -m http.server 8080
 
 # 方式三：Docker
-docker run -d --name nav-dash -p 8080:80 \
+docker run -d --name NexHub -p 8080:80 \
   -v $(pwd)/index.html:/var/www/index.html \
   busybox httpd -f -p 80 -h /var/www
 ```
