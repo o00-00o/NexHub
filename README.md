@@ -1,19 +1,47 @@
 # Nav Dash
 
-极简导航面板 — 纯 HTML/CSS/JS 单文件，零依赖。
+极简导航面板 — 纯 HTML/CSS/JS 单文件，零框架零依赖。
 
 ## 功能
+
 - 多账户管理（工作/生活/自定义）
 - 87 个内联 SVG 图标库
-- 自定义壁纸 + 裁剪
-- 深色/浅色/6 套预设主题
+- 自定义壁纸上传 + 裁剪
+- 深色 / 浅色 / 6 套预设主题
 - 卡片透明度 + 10 色颜色
-- 分类 + 拖拽排序
+- 分类筛选 + 拖拽排序
 - 多搜索引擎切换 + 启停
-- 导出/导入 JSON 配置
+- 导出 / 导入 JSON 配置
 - 移动端适配
 
 ## 部署
+
+不依赖 nginx，任意静态文件服务都可以：
+
 ```bash
-docker run -d --name nav -p 8080:80 -v $(pwd)/index.html:/usr/share/nginx/html/index.html nginx:alpine
+# 方式一：直接用浏览器打开
+open index.html
+
+# 方式二：Python 起一个服务
+python3 -m http.server 8080
+
+# 方式三：Docker
+docker run -d --name nav-dash -p 8080:80 \
+  -v $(pwd)/index.html:/usr/share/nginx/html/index.html \
+  nginx:alpine
 ```
+
+## 技术栈
+
+| 项目 | 说明 |
+|------|------|
+| HTML | 单文件 `<style>` + `<script>` |
+| CSS | 变量系统 + 媒体查询，Apple 风格 |
+| JS | 纯 ES5，无打包工具 |
+| 存储 | localStorage |
+| 图标 | 内联 SVG，87 个 Lucide 风格 |
+| 大小 | ~68KB |
+
+## 许可
+
+MIT
